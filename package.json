@@ -1,0 +1,28 @@
+{
+  "name": "team-profile-gen",
+  "version": "1.0.0",
+  "description": "This application can be used at the command line to generate an html file with the information from user input about members on a development team.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/britbolt/team-profile-gen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/britbolt/team-profile-gen/issues"
+  },
+  "homepage": "https://github.com/britbolt/team-profile-gen#readme",
+  "dependencies": {
+    "inquirer": "^9.1.0"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
+  }
+}
