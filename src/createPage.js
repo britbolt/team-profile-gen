@@ -55,7 +55,7 @@ const generateIntern = function (intern) {
 };
 
 // push array to page 
-createPage = (data) => {
+const createPage = (data) => {
 
     // array for cards 
     pageArray = []; 

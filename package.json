@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This application can be used at the command line to generate an html file with the information from user input about members on a development team.",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "lib": "lib"
   },
