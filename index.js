@@ -1,13 +1,17 @@
-import inquirer from 'inquirer';
-const Manager = require('./lib/Manager');
-const Intern = require('./lib/Intern');
-const Engineer = require('./lib/Engineer');
-const createPage = require('./src/createPage')
+import man from './lib/Manager.js';
+const Intern = ('./lib/Intern');
+const Engineer = ('./lib/Engineer');
+
+import inquirer from "inquirer";
+import fs from 'fs';
+
+const createPage = ('./src/createPage');
 
 // import { Manager } from "./lib/Manager"; 
 // import { Intern } from "./lib/Intern"; 
 // import { Engineer } from "./lib/Engineer"; 
 // import { createPage } from "./src/createPage";
+
 // team array
 const teamArray = []; 
 
@@ -45,7 +49,7 @@ const addManager = () => {
             name: 'email',
             message: "Please enter the manager's email.",
             validate: email => {
-                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+               const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
                 if (valid) {
                     return true;
                 } else {
@@ -70,7 +74,7 @@ const addManager = () => {
     ])
     .then(managerInput => {
         const  { name, id, email, officeNumber } = managerInput; 
-        const manager = new Manager (name, id, email, officeNumber);
+        const manager = new man (name, id, email, officeNumber);
 
         teamArray.push(manager); 
         console.log(manager); 
@@ -83,7 +87,15 @@ const addEmployee = () => {
         {
             type: 'text',
             name: 'name',
-            message: 'What is the employee name?'
+            message: 'What is the employee name?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log ("Please enter the manager's name!");
+                    return false; 
+                }
+            }
         },
         {
             type: 'list',
@@ -101,7 +113,7 @@ const addEmployee = () => {
             name: 'email',
             message: 'What is the employees email address?',
             validate: email => {
-                valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+                const valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
                 if (valid) {
                     return true;
                 } else {
