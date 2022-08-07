@@ -1,10 +1,13 @@
-import { createPage } from "./src/createPage";
 import inquirer from 'inquirer';
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+const createPage = require('./src/createPage')
 
-import { Manager } from "./lib/Manager"; 
-import { Intern } from "./lib/Intern"; 
-import { Engineer } from "./lib/Engineer"; 
-
+// import { Manager } from "./lib/Manager"; 
+// import { Intern } from "./lib/Intern"; 
+// import { Engineer } from "./lib/Engineer"; 
+// import { createPage } from "./src/createPage";
 // team array
 const teamArray = []; 
 
