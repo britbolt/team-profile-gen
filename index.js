@@ -133,6 +133,19 @@ const addEmployee = () => {
             }
         },
         {
+            type: 'input',
+            name: 'github',
+            message: "Please enter the engineer's github",
+            when: (input) => input.role === "Engineer",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log ("Please enter the engineer's github!")
+                }
+            }
+        },
+        {
             type: 'confirm',
             name: 'confirmAddEmployee',
             message: 'Would you like to add more team members?',
@@ -144,7 +157,7 @@ const addEmployee = () => {
            const employee = employee;
             
            if (role === "Engineer") {
-            employee = new Engineer (emp_name, id, email)
+            employee = new Engineer (emp_name, id, email, github)
             console.log(employee);
 
            } else if (role === "Intern") {
