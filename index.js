@@ -1,19 +1,4 @@
-import man from './lib/Manager.js';
-const Intern = ('./lib/Intern');
-const Engineer = ('./lib/Engineer');
-
-import inquirer from "inquirer";
-import fs from 'fs';
-
-const createPage = ('./src/createPage');
-
-// import { Manager } from "./lib/Manager"; 
-// import { Intern } from "./lib/Intern"; 
-// import { Engineer } from "./lib/Engineer"; 
-// import { createPage } from "./src/createPage";
-
-// team array
-const teamArray = []; 
+ 
 
 // start of manager prompts 
 const addManager = async () => {
