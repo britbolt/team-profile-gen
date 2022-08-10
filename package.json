@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/britbolt/team-profile-gen#readme",
   "dependencies": {
+    "create-require": "^1.1.1",
     "fs": "^0.0.1-security",
     "inquirer": "^9.1.0"
   },
