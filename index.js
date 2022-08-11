@@ -108,14 +108,10 @@ const employeeQuestions = () => {
     }
 ])
 .then((answers) => {
-    if(!answers.anotherEmployee) {
-        console.log(employeesArray);
-        return answers;
-        
-    } else if(answers.role) {
+    if(answers.role) {
         switch (answers.role) {
             case "manager":
-                const manager = new Manager(answers);
+                const manager = new Manager(name, id, email, officeNumber);
                 employeesArray.push(manager);
                 break;
             case "engineer":
@@ -126,7 +122,11 @@ const employeeQuestions = () => {
                 const intern = new Intern(answers);
                 employeesArray.push(intern);        
         }
-        return employeeQuestions();
+    }
+    if(anotherEmployee) {
+        employeeQuestions();
+    } else {
+        
     }
 })
 .catch((error) => {
