@@ -1,5 +1,7 @@
 // import npm packages 
 import inquirer from 'inquirer';
+import fs from 'fs';
+import path from 'path';
 
 
 // import classes 
@@ -9,7 +11,7 @@ import Intern from './lib/Intern.js';
 
 
 // import html template 
-// const template = require('./src/template.html');
+import generateTeam from './src/template.js';
 
 // array for team to insert into template
 const employeesArray = [];
@@ -111,7 +113,7 @@ const employeeQuestions = () => {
     if(answers.role) {
         switch (answers.role) {
             case "manager":
-                const manager = new Manager(name, id, email, officeNumber);
+                const manager = new Manager(answers);
                 employeesArray.push(manager);
                 break;
             case "engineer":
@@ -123,10 +125,11 @@ const employeeQuestions = () => {
                 employeesArray.push(intern);        
         }
     }
+}).then((anotherEmployee) => {
     if(anotherEmployee) {
-        employeeQuestions();
+        return employeeQuestions(employeesArray);
     } else {
-        
+        return generateFile(employeesArray);
     }
 })
 .catch((error) => {
@@ -135,4 +138,16 @@ const employeeQuestions = () => {
 };
 
 employeeQuestions();
+
+
 // use fs write file to generate index.html page
+function generateFile() {
+    fs.writeFile('/dist/team.html', generateTeam(employeesArray), err => {
+        if(err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("The team profile has been created and can be viewed in file team.html");
+        }
+    });
+};
